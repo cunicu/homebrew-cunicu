@@ -5,36 +5,36 @@
 class Cunicu < Formula
   desc "A zeroconf peer-to-peer mesh VPN using Wireguard® and Interactive Connectivity Establishment (ICE)"
   homepage "https://cunicu.li"
-  version "0.1.1"
+  version "0.1.2"
   license "Apache-2.0"
 
   depends_on "bash-completion" => :optional
   depends_on "wireguard-tools" => :optional
 
   on_macos do
-    url "https://github.com/stv0g/cunicu/releases/download/v0.1.1/cunicu_0.1.1_darwin_all"
-    sha256 "a0b4c3f81fe0550c6fecb18590527bdd21b8702427cde6a89402da07ac666a7f"
+    url "https://github.com/stv0g/cunicu/releases/download/v0.1.2/cunicu_0.1.2_darwin_all"
+    sha256 "6093df8ce128d29f1157116a49e4ef9ef426aa21edbb4569a095d0db8c98f019"
 
     def install
-      bin.install "cunicu_0.1.1_darwin_all" => "cunicu"
+      bin.install "cunicu_0.1.2_darwin_all" => "cunicu"
     end
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/stv0g/cunicu/releases/download/v0.1.1/cunicu_0.1.1_linux_arm64"
-      sha256 "6b30c2ca57e86908039c4d318535a52061d59bb4514eb828571458872bf12a46"
+    if Hardware::CPU.intel?
+      url "https://github.com/stv0g/cunicu/releases/download/v0.1.2/cunicu_0.1.2_linux_amd64"
+      sha256 "e3390d21c0dc3e2082fcdf4c2c116f6d90f69c2e9d0b4df8a81f64a10747c733"
 
       def install
-        bin.install "cunicu_0.1.1_linux_arm64" => "cunicu"
+        bin.install "cunicu_0.1.2_linux_amd64" => "cunicu"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/stv0g/cunicu/releases/download/v0.1.1/cunicu_0.1.1_linux_amd64"
-      sha256 "ddb669efb3eae80205a6f85360a36b70bcd6551164f79166bfcb7b84b92bac77"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/stv0g/cunicu/releases/download/v0.1.2/cunicu_0.1.2_linux_arm64"
+      sha256 "c028b912f7e5080023363a511d70431b2d5d402d3c72c63c5c344d673a8d081c"
 
       def install
-        bin.install "cunicu_0.1.1_linux_amd64" => "cunicu"
+        bin.install "cunicu_0.1.2_linux_arm64" => "cunicu"
       end
     end
   end
