@@ -13,7 +13,7 @@ class Cunicu < Formula
 
   on_macos do
     url "https://github.com/stv0g/cunicu/releases/download/v0.1.2/cunicu_0.1.2_darwin_all.tar.gz"
-    sha256 "c51a30ba1480d1df60aace2938a5bf0279164693fb490b00a4d060f8419d744e"
+    sha256 "2eff39b05cafe04fcf9ae737c78e2a7ee178aeb86d6ac3f0cfa87538e4162801"
 
     def install
       bin.install "cunicu"
@@ -31,7 +31,7 @@ class Cunicu < Formula
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/stv0g/cunicu/releases/download/v0.1.2/cunicu_0.1.2_linux_arm64.tar.gz"
-      sha256 "9d7332548bc64f480872bf951970d964a8bd34fa9db5d3ddfd451b363b6fd0e5"
+      sha256 "faa261f347639c61d8eec228347b4f6d9e7e248e1b892534ca4b50055c57e5b4"
 
       def install
         bin.install "cunicu"
@@ -47,7 +47,7 @@ class Cunicu < Formula
     end
     if Hardware::CPU.intel?
       url "https://github.com/stv0g/cunicu/releases/download/v0.1.2/cunicu_0.1.2_linux_amd64.tar.gz"
-      sha256 "836dc487753bffd3b4a0c52aeebcb450059d815cee23dc48df343eb61c97fea9"
+      sha256 "d17036a56f3995d91c1f94ddc0275232ddbf770d1cce23ef8bafc9992542d8e7"
 
       def install
         bin.install "cunicu"
