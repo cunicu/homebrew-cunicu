@@ -12,29 +12,53 @@ class Cunicu < Formula
   depends_on "wireguard-tools" => :optional
 
   on_macos do
-    url "https://github.com/stv0g/cunicu/releases/download/v0.1.2/cunicu_0.1.2_darwin_all"
-    sha256 "add0a18b0bd1aab137fda9642c6efe457a8d1d33aeff129db1ba28489e56f667"
+    url "https://github.com/stv0g/cunicu/releases/download/v0.1.2/cunicu_0.1.2_darwin_all.tar.gz"
+    sha256 "ad88fc3b1f0508a62cedaf2dde244d5b5b9afdfe979de76c50e66e967a75f68a"
 
     def install
-      bin.install "cunicu_0.1.2_darwin_all" => "cunicu"
+      bin.install "cunicu"
+      etc.install "etc/cunicu.yaml"
+      bash_completion.install "completions/cunicu.bash" => "cunicu"
+      zsh_completion.install "completions/cunicu.zsh" => "_cunicu"
+      fish_completion.install "completions/cunicu.fish"
+      man1.install Dir["man/*.1"]
+      man5.install Dir["man/*.5"]
+      man7.install Dir["man/*.7"]
+      man8.install Dir["man/*.8"]
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/stv0g/cunicu/releases/download/v0.1.2/cunicu_0.1.2_linux_arm64"
-      sha256 "b61a27f90e0fd8d490a70bfc550d0d60f1f1848afcfbd5a75e9b6f1a44e5d82d"
+      url "https://github.com/stv0g/cunicu/releases/download/v0.1.2/cunicu_0.1.2_linux_arm64.tar.gz"
+      sha256 "98f56bcc0bc46acd25b5cf1c8205e6765860c8e32ab67c0f700182eb65f83d8b"
 
       def install
-        bin.install "cunicu_0.1.2_linux_arm64" => "cunicu"
+        bin.install "cunicu"
+        etc.install "etc/cunicu.yaml"
+        bash_completion.install "completions/cunicu.bash" => "cunicu"
+        zsh_completion.install "completions/cunicu.zsh" => "_cunicu"
+        fish_completion.install "completions/cunicu.fish"
+        man1.install Dir["man/*.1"]
+        man5.install Dir["man/*.5"]
+        man7.install Dir["man/*.7"]
+        man8.install Dir["man/*.8"]
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/stv0g/cunicu/releases/download/v0.1.2/cunicu_0.1.2_linux_amd64"
-      sha256 "0652b9170d3b998585596be3e84db1bd49c2a3725cd7510596db406ce74d2558"
+      url "https://github.com/stv0g/cunicu/releases/download/v0.1.2/cunicu_0.1.2_linux_amd64.tar.gz"
+      sha256 "2e15230078322c3c4ef99efce33c0fb38889919e2fea7be4667624827a482de8"
 
       def install
-        bin.install "cunicu_0.1.2_linux_amd64" => "cunicu"
+        bin.install "cunicu"
+        etc.install "etc/cunicu.yaml"
+        bash_completion.install "completions/cunicu.bash" => "cunicu"
+        zsh_completion.install "completions/cunicu.zsh" => "_cunicu"
+        fish_completion.install "completions/cunicu.fish"
+        man1.install Dir["man/*.1"]
+        man5.install Dir["man/*.5"]
+        man7.install Dir["man/*.7"]
+        man8.install Dir["man/*.8"]
       end
     end
   end
