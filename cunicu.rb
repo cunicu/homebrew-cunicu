@@ -5,15 +5,15 @@
 class Cunicu < Formula
   desc "A zeroconf peer-to-peer mesh VPN using Wireguard® and Interactive Connectivity Establishment (ICE)"
   homepage "https://cunicu.li"
-  version "0.2.1"
+  version "0.2.2"
   license "Apache-2.0"
 
   depends_on "bash-completion" => :optional
   depends_on "wireguard-tools" => :optional
 
   on_macos do
-    url "https://github.com/stv0g/cunicu/releases/download/v0.2.1/cunicu_0.2.1_darwin_all.tar.gz"
-    sha256 "0499e32d32dd9deb31aea74c3b105287b9736be81bdbbd8abf983360e95e330b"
+    url "https://github.com/stv0g/cunicu/releases/download/v0.2.2/cunicu_0.2.2_darwin_all.tar.gz"
+    sha256 "81e1a4b99756738d177411d1774030f87a4a3525d7ff92778b3f2d307012209f"
 
     def install
       bin.install "cunicu"
@@ -22,16 +22,13 @@ class Cunicu < Formula
       zsh_completion.install "completions/cunicu.zsh" => "_cunicu"
       fish_completion.install "completions/cunicu.fish"
       man1.install Dir["man/*.1"]
-      man5.install Dir["man/*.5"]
-      man7.install Dir["man/*.7"]
-      man8.install Dir["man/*.8"]
     end
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/stv0g/cunicu/releases/download/v0.2.1/cunicu_0.2.1_linux_arm64.tar.gz"
-      sha256 "671658d353bb52aea9372a0eab12d9910ef8e1785364e992b1a6d44fefa70b5d"
+    if Hardware::CPU.intel?
+      url "https://github.com/stv0g/cunicu/releases/download/v0.2.2/cunicu_0.2.2_linux_amd64.tar.gz"
+      sha256 "ccb322dc7461a1613af0429fa465e039094c3206305ed0e2654785c7d413e54c"
 
       def install
         bin.install "cunicu"
@@ -40,14 +37,11 @@ class Cunicu < Formula
         zsh_completion.install "completions/cunicu.zsh" => "_cunicu"
         fish_completion.install "completions/cunicu.fish"
         man1.install Dir["man/*.1"]
-        man5.install Dir["man/*.5"]
-        man7.install Dir["man/*.7"]
-        man8.install Dir["man/*.8"]
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/stv0g/cunicu/releases/download/v0.2.1/cunicu_0.2.1_linux_amd64.tar.gz"
-      sha256 "fd3a546e9e50fdbfa3b21e48a8442c1b455a2d1355f72f00feeddd1a07460701"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/stv0g/cunicu/releases/download/v0.2.2/cunicu_0.2.2_linux_arm64.tar.gz"
+      sha256 "744083059f0a994d6a86ffd5142489163e1ea82dacfc4f2ba82af53c528bbf7a"
 
       def install
         bin.install "cunicu"
@@ -56,9 +50,6 @@ class Cunicu < Formula
         zsh_completion.install "completions/cunicu.zsh" => "_cunicu"
         fish_completion.install "completions/cunicu.fish"
         man1.install Dir["man/*.1"]
-        man5.install Dir["man/*.5"]
-        man7.install Dir["man/*.7"]
-        man8.install Dir["man/*.8"]
       end
     end
   end
