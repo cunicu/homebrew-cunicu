@@ -5,19 +5,19 @@
 class Cunicu < Formula
   desc "A zeroconf peer-to-peer mesh VPN using Wireguard® and Interactive Connectivity Establishment (ICE)"
   homepage "https://cunicu.li"
-  version "0.2.5"
+  version "0.3.1"
   license "Apache-2.0"
 
   depends_on "bash-completion" => :optional
   depends_on "wireguard-tools" => :optional
 
   on_macos do
-    url "https://github.com/stv0g/cunicu/releases/download/v0.2.5/cunicu_0.2.5_darwin_all.tar.gz"
-    sha256 "63952dd94496bc747a61187664811797c241c72ab4de01850525d511ec131ed8"
+    url "https://github.com/stv0g/cunicu/releases/download/v0.3.1/cunicu_0.3.1_darwin_all.tar.gz"
+    sha256 "9b1531bee97359bd23087b14415792253763aec96200a8e6cdfd041dbfccc8ac"
 
     def install
       bin.install "cunicu"
-      etc.install "etc/cunicu.yaml"
+      etc.install "etc/cunicu.yaml", "etc/cunicu.advanced.yaml"
       bash_completion.install "completions/cunicu.bash" => "cunicu"
       zsh_completion.install "completions/cunicu.zsh" => "_cunicu"
       fish_completion.install "completions/cunicu.fish"
@@ -27,12 +27,12 @@ class Cunicu < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/stv0g/cunicu/releases/download/v0.2.5/cunicu_0.2.5_linux_arm64.tar.gz"
-      sha256 "2bb4ec4bd93615e88778fdee261997ae2be0c70e65fc601e7e6447ba3b3d3518"
+      url "https://github.com/stv0g/cunicu/releases/download/v0.3.1/cunicu_0.3.1_linux_arm64.tar.gz"
+      sha256 "79353f9732988333d9d81311030d69c5cb60261c065ba9b6824476fe4b5303ff"
 
       def install
         bin.install "cunicu"
-        etc.install "etc/cunicu.yaml"
+        etc.install "etc/cunicu.yaml", "etc/cunicu.advanced.yaml"
         bash_completion.install "completions/cunicu.bash" => "cunicu"
         zsh_completion.install "completions/cunicu.zsh" => "_cunicu"
         fish_completion.install "completions/cunicu.fish"
@@ -40,12 +40,12 @@ class Cunicu < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/stv0g/cunicu/releases/download/v0.2.5/cunicu_0.2.5_linux_amd64.tar.gz"
-      sha256 "500133e2f1f5808589f189a8e87084b21de8fd79ac09b01c61c0606c7aa5eaf4"
+      url "https://github.com/stv0g/cunicu/releases/download/v0.3.1/cunicu_0.3.1_linux_amd64.tar.gz"
+      sha256 "627221cdcec97e8e8c93abcda569fc6b79385ee79c64b5478ead09fc2ff4d51d"
 
       def install
         bin.install "cunicu"
-        etc.install "etc/cunicu.yaml"
+        etc.install "etc/cunicu.yaml", "etc/cunicu.advanced.yaml"
         bash_completion.install "completions/cunicu.bash" => "cunicu"
         zsh_completion.install "completions/cunicu.zsh" => "_cunicu"
         fish_completion.install "completions/cunicu.fish"
