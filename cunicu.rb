@@ -5,15 +5,15 @@
 class Cunicu < Formula
   desc "A zeroconf peer-to-peer mesh VPN using Wireguard® and Interactive Connectivity Establishment (ICE)"
   homepage "https://cunicu.li"
-  version "0.5.7"
+  version "0.5.8"
   license "Apache-2.0"
 
   depends_on "bash-completion" => :optional
   depends_on "wireguard-tools" => :optional
 
   on_macos do
-    url "https://github.com/cunicu/cunicu/releases/download/v0.5.7/cunicu_0.5.7_darwin_all.tar.gz"
-    sha256 "26042a9025e31229b02a206ca03f802f5b9d3266d3fa30a37f86b09bffa40e46"
+    url "https://github.com/cunicu/cunicu/releases/download/v0.5.8/cunicu_0.5.8_darwin_all.tar.gz"
+    sha256 "a079d595fe42315839ee32ea6a9aa45d1b7fb9c1b7033cc37e6c7671066c242a"
 
     def install
       bin.install "cunicu"
@@ -28,8 +28,8 @@ class Cunicu < Formula
   on_linux do
     on_intel do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/cunicu/cunicu/releases/download/v0.5.7/cunicu_0.5.7_linux_amd64.tar.gz"
-        sha256 "b53097a435bcd922fe388e60ef7b20a8c32c2a5a57e5a66bff42b04803a674e2"
+        url "https://github.com/cunicu/cunicu/releases/download/v0.5.8/cunicu_0.5.8_linux_amd64.tar.gz"
+        sha256 "200d602e7d266a9497f0fa54dd9e8ee5e2352ae4369746519a4c0d691cc48ef0"
 
         def install
           bin.install "cunicu"
@@ -43,8 +43,8 @@ class Cunicu < Formula
     end
     on_arm do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/cunicu/cunicu/releases/download/v0.5.7/cunicu_0.5.7_linux_arm64.tar.gz"
-        sha256 "b26f3bbbaee1811e16587f9fc9d210b4281593893c1ae1757e83c443f6a88598"
+        url "https://github.com/cunicu/cunicu/releases/download/v0.5.8/cunicu_0.5.8_linux_arm64.tar.gz"
+        sha256 "79ba732af5aa0731530d22cacdbe0ce091944bba5a23269acee6ae66c64a7370"
 
         def install
           bin.install "cunicu"
